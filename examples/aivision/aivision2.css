@@ -11,6 +11,20 @@ body {
   background: #e5e7eb;
 }
 
+
+/* =========================================================
+Texte : coupé proprement (pas de scroll moche)
+   ========================================================= */
+
+.body-text,
+.bullet-text p {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6; /* ajustable */
+}
+
+
 /* =========================================================
    VARIABLES / THEME
    ========================================================= */
@@ -48,13 +62,15 @@ body {
 .slide {
   width: 1280px;
   height: 720px;
-  background: var(--white);
   margin: auto;
-  position: relative;
-  overflow: hidden;
-  padding: 40px;
+  background: var(--white);
+  display: grid;
+  grid-template-rows: auto 1fr 64px; /* header | content | footer */
+  padding: 40px 40px 24px;
   box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+  overflow: hidden;
 }
+
 
 /* =========================================================
    TITLE
@@ -79,10 +95,12 @@ body {
    MAIN LAYOUT
    ========================================================= */
 .slide-content {
+  min-height: 0; /* indispensable pour que Flex/Grid respecte la contrainte verticale. */
   display: flex;
   gap: 40px;
-  height: calc(100% - 160px);
+  overflow: hidden;
 }
+
 
 /* =========================================================
    BULLETS
@@ -156,14 +174,49 @@ body {
   border-radius: 20px;
 }
 
+
+/* =========================================================
+   Redimensionnement intelligent des images / charts
+   ========================================================= */
+
+.image-column,
+.slide-image {
+  min-height: 0;
+  display: flex;
+}
+
+.image-column img,
+.image-wrapper img {
+  max-height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* =========================================================
+   CHART
+   ========================================================= */
+
+.chart-column {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.chart-box {
+  flex: 1;
+  min-height: 0;
+}
+
+.chart-placeholder {
+  height: 100%;
+}
+
+
+
 /* =========================================================
    FOOTER
    ========================================================= */
 .slide-footer {
-  position: absolute;
-  bottom: 24px;
-  left: 40px;
-  right: 40px;
   display: flex;
   align-items: center;
   gap: 16px;
@@ -180,116 +233,4 @@ body {
   background: var(--gradient-primary);
 }
 
-/* =========================================================
-   LAYOUT : BIG IMAGE ON LEFT
-   ========================================================= */
-.layout-image-left {
-  display: flex;
-  gap: 40px;
-  height: calc(100% - 120px);
-}
 
-.layout-image-left .image-column {
-  flex: 7;
-  padding: 12px;
-  background: var(--gradient-primary);
-  border-radius: 32px;
-}
-
-.layout-image-left .image-column img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 26px;
-}
-
-.layout-image-left .text-column {
-  flex: 5;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.subtitle {
-  font-size: 32px;
-  font-weight: 600;
-  color: #300132;
-  margin: 24px 0;
-}
-
-.body-text {
-  font-size: 20px;
-  line-height: 1.55;
-  color: var(--text-dark);
-}
-
-/* =========================================================
-   LAYOUT : CHART + BULLETS
-   ========================================================= */
-.layout-chart {
-  display: flex;
-  gap: 32px;
-  height: calc(100% - 120px);
-}
-
-.chart-column {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.chart-box {
-  flex: 1;
-  background: #f5f8fe;
-  border-radius: 16px;
-  padding: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.chart-placeholder {
-  width: 100%;
-  height: 100%;
-  border-radius: 12px;
-  background: repeating-linear-gradient(
-    -45deg,
-    #e0e7ff,
-    #e0e7ff 10px,
-    #f5f8fe 10px,
-    #f5f8fe 20px
-  );
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--accent);
-  font-weight: 600;
-}
-
-/* Bullets right */
-.side-bullets {
-  width: 320px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 16px;
-}
-
-.side-bullet {
-  background: var(--gradient-primary);
-  color: white;
-  border-radius: 20px;
-  padding: 20px;
-}
-
-.side-bullet h3 {
-  margin: 0 0 8px;
-  font-family: 'Noto Serif', serif;
-  font-size: 18px;
-}
-
-.side-bullet p {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.55;
-}

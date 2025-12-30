@@ -13,8 +13,17 @@
 
 	<!-- Theme used for syntax highlighted code -->
 	<!-- <link rel="stylesheet" href="plugin/highlight/monokai.css"> -->
-	<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&display=swap" rel="stylesheet" />
-	<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+	<!-- <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&display=swap" rel="stylesheet" />
+	<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Noto+Serif:wght@700&display=swap"
+		rel="stylesheet">
+
+	<!-- Styles -->
+	<link rel="stylesheet" href="examples/aivision/aivision.css">
 </head>
 
 <body>
@@ -26,70 +35,48 @@
 				<section>Slide 3.1</section>
 				<section>Slide 3.2</section>
 			</section>
-			<section>
-				<div
-					class="relative w-full rounded-sm max-w-[1280px] shadow-lg max-h-[720px] aspect-video bg-white z-0 mx-auto overflow-hidden">
-					<div class="px-12 pt-8">
-						<h1 class="font-['Noto Serif'] text-[64px] leading-[1.05] font-bold text-black z-1 text-left">
-							Our Mission
-						</h1>
-					</div>
-					<div class="grid grid-cols-[0.56fr_0.44fr] gap-x-8 px-10 mt-2 items-center">
-						<div class="w-full h-full relative">
-							<svg viewBox="0 0 100 100" class="absolute pointer-events-none z-10">
-								<defs>
-									<linearGradient id="lg1" x1="0" y1="0" x2="1" y2="0">
-										<stop offset="0%" stopColor="#0EA5E9" />
-										<stop offset="100%" stopColor="#7C3AED" />
-									</linearGradient>
-								</defs>
-								<polygon points="5,40 12,10 85,5 95,50 85,85 12,82 5,50" fill="url(#lg1)"
-									stroke="url(#lg1)" strokeWidth="10" strokeLinejoin="round" />
-							</svg>
+<section class="slide">
+
+  <h1 class="slide-title gradient-text">
+    Big img à gauche
+  </h1>
+
+  <div class="layout-image-left">
+
+    <!-- IMAGE -->
+    <div class="image-column">
+      <img
+        src="https://images.pexels.com/photos/31527637/pexels-photo-31527637.jpeg"
+        alt="Doctors around vintage computer"
+      />
+    </div>
+
+    <!-- TEXT -->
+    <div class="text-column">
+      <div class="subtitle">
+        Avec un sous-titre plus petit
+      </div>
+
+      <div class="body-text">
+        Avec néanmoins de la place pour le texte ici. Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+        ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="slide-footer">
+    <img src="https://ai-vision.fr/wp-content/uploads/2025/12/Iris_mauve_7C3AED_500x500.svg" alt="">
+    <div class="line"></div>
+    <img src="https://ai-vision.fr/wp-content/uploads/2025/12/Logo_20271011_no_txt.svg" alt="">
+  </div>
+
+</section>
 
 
-							<div class="absolute w-full h-full z-20">
-								<img src="https://images.pexels.com/photos/31527637/pexels-photo-31527637.jpeg"
-									class="object-cover" />
-							</div>
-
-						</div>
-
-						<div class="pt-4 z-20">
-							<div class="grid grid-cols-2 gap-x-10 gap-y-6 ">
-								<ul>
-									<li
-										class="list-disc space-y-5 text-[#111827] font-['Barlow'] text-[18px] leading-[1.55]">
-										Titre de la liste
-									</li>
-									<li>
-									<ul class="list-disc mt-3 space-y-3 text-[17px] leading-[1.55] font-['Barlow']">
-										<li> élem 1</li>
-										<li> élem 2</li>
-									</ul>
-									</li>
-								</ul>
-							</div>
-						</div>
-
-						<svg class="pointer-events-none absolute right-[-40px] bottom-[-180px] w-[520px] h-[300px]"
-							viewBox="0 0 520 300" aria-hidden="true">
-							<defs>
-								<linearGradient id="brg" x1="0" y1="0" x2="0" y2="1">
-									<stop offset="0%" stopColor="#7C3AED" />
-									<stop offset="100%" stopColor="#6D28D9" />
-								</linearGradient>
-							</defs>
-							<path d="M0,300 H520 V0 A520,520 0 0 0 0,300 Z" fill="url(#brg)" />
-						</svg>
-
-						<div class="pointer-events-none absolute right-4 bottom-4 w-16 h-16 z-30">
-							<img src="https://ai-vision.fr/wp-content/uploads/2025/12/Logo_20271011_no_txt_round.svg"
-								alt="LOGO AI-VISION in white circle" class="w-full h-full" />
-						</div>
-					</div>
-				</div>
-			</section>
 		</div>
 	</div>
 
