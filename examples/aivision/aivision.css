@@ -1,0 +1,182 @@
+/* =========================================================
+   BASE / RESET
+   ========================================================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Barlow', sans-serif;
+  background: #e5e7eb;
+}
+
+/* =========================================================
+   VARIABLES / THEME
+   ========================================================= */
+:root {
+  --accent-start: #7C3AED;
+  --accent-end: #0EA5E9;
+  --accent: #7C3AED;
+
+  --text-dark: #111827;
+  --text-muted: #4b5563;
+  --white: #ffffff;
+
+  --gradient-primary: linear-gradient(
+    90deg,
+    var(--accent-start),
+    var(--accent-end)
+  );
+}
+
+/* =========================================================
+   UTILITIES (mini Tailwind maison)
+   ========================================================= */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.gap-sm { gap: 12px; }
+.gap-md { gap: 24px; }
+.gap-lg { gap: 40px; }
+
+/* =========================================================
+   SLIDE CONTAINER
+   ========================================================= */
+.slide {
+  width: 1280px;
+  height: 720px;
+  background: var(--white);
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+  padding: 40px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+}
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+.slide-title {
+  font-family: 'Noto Serif', serif;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.05;
+  margin-bottom: 40px;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* =========================================================
+   MAIN LAYOUT
+   ========================================================= */
+.slide-content {
+  display: flex;
+  gap: 40px;
+  height: calc(100% - 160px);
+}
+
+/* =========================================================
+   BULLETS
+   ========================================================= */
+.bullets {
+  flex: 2;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  align-content: center;
+}
+
+.bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.bullet-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.bullet-icon img {
+  width: 24px;
+  height: 24px;
+}
+
+.bullet-text h3 {
+  margin: 0 0 6px;
+  font-family: 'Noto Serif', serif;
+  font-size: 20px;
+  color: var(--accent);
+}
+
+.bullet-text p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text-dark);
+}
+
+/* =========================================================
+   IMAGE BLOCK
+   ========================================================= */
+.slide-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-wrapper {
+  width: 100%;
+  height: 320px;
+  border-radius: 24px;
+  padding: 6px;
+  background: var(--gradient-primary);
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.slide-footer {
+  position: absolute;
+  bottom: 24px;
+  left: 40px;
+  right: 40px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.slide-footer img {
+  width: 40px;
+  height: 40px;
+}
+
+.slide-footer .line {
+  flex: 1;
+  height: 2px;
+  background: var(--gradient-primary);
+}
+
