@@ -44,17 +44,24 @@ Texte : coupé proprement (pas de scroll moche)
   );
 }
 
+.width-fit-content {
+  width: fit-content;
+}
+
 /* =========================================================
    UTILITIES (mini Tailwind maison)
    ========================================================= */
-/* .flex { display: flex; }
+.flex { display: flex; }
 .flex-col { flex-direction: column; }
 .items-center { align-items: center; }
 .justify-center { justify-content: center; }
 .justify-between { justify-content: space-between; }
 .gap-sm { gap: 12px; }
 .gap-md { gap: 24px; }
-.gap-lg { gap: 40px; } */
+.gap-lg { gap: 40px; }
+.flex-1 {flex: 1;}
+.flex-auto {flex: auto;}
+.flex-none {flex: none;}
 
 /* =========================================================
    SLIDE CONTAINER
@@ -64,7 +71,7 @@ Texte : coupé proprement (pas de scroll moche)
   height: 720px;
   background: var(--white);
   display: grid;
-  grid-template-rows: 80px 1fr 64px; /* header | content | footer */
+  grid-template-rows: 80px 576px 64px; /* header | content | footer */
   box-shadow: 0 30px 60px rgba(0,0,0,0.2);
   overflow: hidden;
 }
@@ -87,17 +94,27 @@ Texte : coupé proprement (pas de scroll moche)
 }
 
 /* =========================================================
+   FLEX CONTAINER
+   ========================================================= */
+.centered-flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================================
    TITLE
    ========================================================= */
 .slide-title {
   font-family: 'Noto Serif', serif;
-  font-size: 64px;
+  font-size: 58px;
   font-weight: 700;
   line-height: 1.00;
   margin-top: 4px;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   margin-left: 16px;
   margin-right: 16px;
+  width: fit-content;
 }
 
 /* Gradient text */
@@ -196,6 +213,24 @@ Texte : coupé proprement (pas de scroll moche)
    Redimensionnement intelligent des images / charts
    ========================================================= */
 
+.grid-img-item img {
+  /* object-fit: cover; */
+  /* max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  width: auto;
+  column-span: 1;
+  grid-row: span 1; */
+  box-sizing: border-box;
+  display: block;
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: 0;
+  padding: 3px;
+}
+
 .image-column,
 .slide-image {
   min-height: 0;
@@ -237,6 +272,7 @@ Texte : coupé proprement (pas de scroll moche)
   display: flex;
   align-items: center;
   gap: 16px;
+  margin: 16px;
 }
 
 .slide-footer img {
