@@ -1,0 +1,120 @@
+
+/* =========================================================
+   VARIABLES / THEME
+   ========================================================= */
+:root {
+  --accent-start: #7C3AED;
+  --accent-end: #0EA5E9;
+  --accent: #7C3AED;
+
+  --text-dark: #111827;
+  --text-muted: #4b5563;
+  --white: #ffffff;
+
+  --gradient-primary: linear-gradient(
+    90deg,
+    var(--accent-start),
+    var(--accent-end)
+  );
+
+  --slide-width: 1280px;
+  --slide-height: 720px;
+  --slide-bg: var(--white);
+}
+
+/* =========================================================
+   GRADIENTS
+   ========================================================= */
+
+
+/* Gradient text */
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+.slide-title {
+  font-family: 'Noto Serif', serif;
+  font-size: 58px;
+  font-weight: 700;
+  line-height: 1.00;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-left: 16px;
+  margin-right: 16px;
+  width: fit-content;
+}
+
+/* =========================================================
+   LAYOUTS
+   ========================================================= */
+
+.aislide-2cols-big-left {
+  width: var(--slide-width);
+  height: var(--slide-height);
+  background: var(--slide-bg);
+  display: grid;
+  overflow: hidden;
+  grid-template-rows: 80px 576px 64px; 
+  grid-template-columns: 3fr 1fr;
+  grid-template-areas: 
+    "header header" 
+    "content-left content-right" 
+    "footer footer"    
+}
+
+.header {
+  grid-area: header;
+  background: yellow;
+  text-align: center;
+}
+
+.footer {
+  grid-area: footer;
+  background: rgb(195, 0, 255);
+}
+
+.content-left {
+  grid-area: content-left;
+  background: rgb(0, 199, 106);
+}
+
+.content-left>img {
+  object-fit: contain;
+  width: 100%;
+  max-height: 100%;
+}
+
+
+.content-right {
+  grid-area: content-right;
+  background: rgb(199, 0, 0);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.slide-footer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 16px;
+}
+
+.slide-footer img {
+  width: 40px;
+  height: 40px;
+}
+
+.slide-footer .line {
+  flex: 1;
+  height: 2px;
+  background: var(--gradient-primary);
+}
