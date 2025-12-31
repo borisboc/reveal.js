@@ -33,14 +33,14 @@ body {
 /* =========================================================
    UTILITIES (mini Tailwind maison)
    ========================================================= */
-.flex { display: flex; }
-.flex-col { flex-direction: column; }
+/* .flex { display: flex; } */
+/* .flex-col { flex-direction: column; }
 .items-center { align-items: center; }
 .justify-center { justify-content: center; }
 .justify-between { justify-content: space-between; }
 .gap-sm { gap: 12px; }
 .gap-md { gap: 24px; }
-.gap-lg { gap: 40px; }
+.gap-lg { gap: 40px; } */
 
 /* =========================================================
    SLIDE CONTAINER

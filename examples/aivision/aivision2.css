@@ -47,30 +47,44 @@ Texte : coupé proprement (pas de scroll moche)
 /* =========================================================
    UTILITIES (mini Tailwind maison)
    ========================================================= */
-.flex { display: flex; }
+/* .flex { display: flex; }
 .flex-col { flex-direction: column; }
 .items-center { align-items: center; }
 .justify-center { justify-content: center; }
 .justify-between { justify-content: space-between; }
 .gap-sm { gap: 12px; }
 .gap-md { gap: 24px; }
-.gap-lg { gap: 40px; }
+.gap-lg { gap: 40px; } */
 
 /* =========================================================
    SLIDE CONTAINER
    ========================================================= */
-.slide {
+.aislide {
   width: 1280px;
   height: 720px;
-  margin: auto;
   background: var(--white);
   display: grid;
-  grid-template-rows: auto 1fr 64px; /* header | content | footer */
-  padding: 40px 40px 24px;
+  grid-template-rows: 80px 1fr 64px; /* header | content | footer */
   box-shadow: 0 30px 60px rgba(0,0,0,0.2);
   overflow: hidden;
 }
 
+.slide-row-header {
+  grid-row: 1 / 2;
+}
+
+.slide-row-content {
+  grid-row: 2 / 3;
+}
+
+.slide-row-footer {
+  grid-row: 3 / 4;
+}
+
+.grid-2cols-big-left{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
 
 /* =========================================================
    TITLE
@@ -79,8 +93,11 @@ Texte : coupé proprement (pas de scroll moche)
   font-family: 'Noto Serif', serif;
   font-size: 64px;
   font-weight: 700;
-  line-height: 1.05;
-  margin-bottom: 40px;
+  line-height: 1.00;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  margin-left: 16px;
+  margin-right: 16px;
 }
 
 /* Gradient text */
@@ -94,7 +111,7 @@ Texte : coupé proprement (pas de scroll moche)
 /* =========================================================
    MAIN LAYOUT
    ========================================================= */
-.slide-content {
+.slide-content-flex-col {
   min-height: 0; /* indispensable pour que Flex/Grid respecte la contrainte verticale. */
   display: flex;
   gap: 40px;
