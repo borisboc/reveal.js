@@ -38,6 +38,9 @@
   background-clip: text;
 }
 
+.gradient-bg {
+  background: var(--gradient-primary);
+}
 
 /* =========================================================
    FLEX utils
@@ -68,6 +71,25 @@ body {
   font-size: 20px;
   line-height: 1.55;
   color: var(--text-dark);
+}
+
+.rounded{
+  border-radius: 18px;
+}
+
+.rounded-top{
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+
+.rounded-bot{
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+}
+
+.padding-for-img-container{
+  padding: 18px;
+  box-sizing: border-box;  
 }
 
 /* =========================================================
@@ -139,12 +161,18 @@ body {
 
 .content-left {
   grid-area: content-left;
-  background: rgb(0, 199, 106);
+  /* background: rgb(0, 199, 106); */
 }
 
 .content-left-sup {
   grid-area: content-left-sup;
   background: rgb(136, 0, 199);
+}
+
+.contained-img{
+  object-fit: contain;
+  width: 100%;
+  max-height: 100%;  
 }
 
 .content-left>img {
