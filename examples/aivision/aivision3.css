@@ -36,6 +36,8 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  padding-bottom: 0.2em;
+  margin-bottom: -0.2em;
 }
 
 .gradient-bg {
@@ -225,6 +227,21 @@ body {
     "footer"    
 }
 
+.aislide-1col-bottom-row  {
+  width: var(--slide-width);
+  height: var(--slide-height);
+  background: var(--slide-bg);
+  display: grid;
+  overflow: hidden;
+  grid-template-rows: 80px 506px 70px 64px; 
+  grid-template-columns: 1fr;
+  grid-template-areas: 
+    "header" 
+    "content-mid" 
+    "content-bottom" 
+    "footer"    
+}
+
 .header {
   grid-area: header;
   background: yellow;
@@ -256,6 +273,12 @@ body {
   grid-area: content-mid;
 }
 
+.content-mid>img {
+  object-fit: contain;
+  width: 100%;
+  max-height: 100%;
+}
+
 .content-right {
   grid-area: content-right;
   background: rgb(199, 0, 0);
@@ -269,6 +292,10 @@ body {
 
 .content-top {
   grid-area: content-top;
+}
+
+.content-bottom {
+  grid-area: content-bottom;
 }
 
 
