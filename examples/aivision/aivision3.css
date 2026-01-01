@@ -20,6 +20,9 @@
   --slide-width: 1280px;
   --slide-height: 720px;
   --slide-bg: var(--white);
+
+  --font-title: 'Noto Serif', serif;
+  --font-paragraph: 'Barlow', sans-serif;
 }
 
 /* =========================================================
@@ -35,11 +38,43 @@
   background-clip: text;
 }
 
+
+/* =========================================================
+   FLEX utils
+   ========================================================= */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.vert-middle{ vertical-align: middle;}
+.flex-centered{
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+}
+
+/* =========================================================
+   BODY
+   ========================================================= */
+
+body {
+  margin: 0;
+  font-family: 'Barlow', sans-serif;
+  background: #e5e7eb;
+}
+
+
+.body-text {
+  font-size: 20px;
+  line-height: 1.55;
+  color: var(--text-dark);
+}
+
 /* =========================================================
    TITLE
    ========================================================= */
 .slide-title {
-  font-family: 'Noto Serif', serif;
+  font-family: var(--font-title);
   font-size: 58px;
   font-weight: 700;
   line-height: 1.00;
@@ -48,6 +83,13 @@
   margin-left: 16px;
   margin-right: 16px;
   width: fit-content;
+}
+
+
+.subtitle {
+  font-size: 32px;
+  font-weight: 600;
+  color: #300132;
 }
 
 /* =========================================================
