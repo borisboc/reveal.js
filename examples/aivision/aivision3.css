@@ -93,6 +93,10 @@ body {
   box-sizing: border-box;  
 }
 
+.oblong-rounded{
+  border-radius: 210px;
+}
+
 /* =========================================================
    TITLE
    ========================================================= */
@@ -171,6 +175,20 @@ body {
   overflow: hidden;
   grid-template-rows: 80px 576px 64px; 
   grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+    "header header" 
+    "content-left content-right" 
+    "footer footer"    
+}
+
+.aislide-2cols-big-right {
+  width: var(--slide-width);
+  height: var(--slide-height);
+  background: var(--slide-bg);
+  display: grid;
+  overflow: hidden;
+  grid-template-rows: 80px 576px 64px; 
+  grid-template-columns: 10fr 25fr;
   grid-template-areas: 
     "header header" 
     "content-left content-right" 
@@ -326,4 +344,21 @@ body {
   font-family: var(--font-paragraph);
   font-size: 14px;
   line-height: 1.55;
+}
+
+/* =========================================================
+   SVG drawings
+   ========================================================= */
+
+.svg-big-left-circle{
+  width: 400px;
+  height: 700px;
+  object-view-box: rect(0px, 0px, 400px, 700px);
+}
+
+.svg-big-left-circle >circle{
+  cx: -100px;
+  cy: 300px;
+  r: 400px;
+  fill: var(--accent);
 }
