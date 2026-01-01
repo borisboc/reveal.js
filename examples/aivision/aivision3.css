@@ -132,6 +132,11 @@ body {
   max-height: 100%;
 }
 
+.content-right>img {
+  object-fit: contain;
+  width: 100%;
+  max-height: 100%;
+}
 
 .content-right {
   grid-area: content-right;
@@ -159,4 +164,52 @@ body {
   flex: 1;
   height: 2px;
   background: var(--gradient-primary);
+}
+
+
+/* =========================================================
+   BULLETS
+   ========================================================= */
+.bullets {
+  flex: 2;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  align-content: center;
+}
+
+.bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.bullet-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.bullet-icon img {
+  width: 24px;
+  height: 24px;
+}
+
+.bullet-text h3 {
+  margin: 0 0 6px;
+  font-family: 'Noto Serif', serif;
+  font-size: 20px;
+  color: var(--accent);
+}
+
+.bullet-text p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text-dark);
 }
