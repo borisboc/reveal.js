@@ -69,6 +69,7 @@ body {
 
 .body-text {
   font-size: 20px;
+  font-family: var(--font-paragraph);
   line-height: 1.55;
   color: var(--text-dark);
 }
@@ -115,6 +116,20 @@ body {
 }
 
 /* =========================================================
+   IMGS
+   ========================================================= */
+
+.contained-img{
+  object-fit: contain;
+  width: 100%;
+  max-height: 100%;  
+}
+
+.skewed-polygon-for-right-img{
+  clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+/* =========================================================
    LAYOUTS
    ========================================================= */
 
@@ -148,6 +163,20 @@ body {
     "footer footer"    
 }
 
+.aislide-2cols-same {
+  width: var(--slide-width);
+  height: var(--slide-height);
+  background: var(--slide-bg);
+  display: grid;
+  overflow: hidden;
+  grid-template-rows: 80px 576px 64px; 
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+    "header header" 
+    "content-left content-right" 
+    "footer footer"    
+}
+
 .header {
   grid-area: header;
   background: yellow;
@@ -167,12 +196,6 @@ body {
 .content-left-sup {
   grid-area: content-left-sup;
   background: rgb(136, 0, 199);
-}
-
-.contained-img{
-  object-fit: contain;
-  width: 100%;
-  max-height: 100%;  
 }
 
 .content-left>img {
@@ -213,6 +236,14 @@ body {
   flex: 1;
   height: 2px;
   background: var(--gradient-primary);
+}
+
+.slide-footer .line >div{
+  margin-top: 2px;
+  font-size: 18px;
+  font-family: var(--font-paragraph);
+  line-height: 1.55;
+  color: var(--text-dark);  
 }
 
 
