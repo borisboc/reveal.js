@@ -89,8 +89,8 @@
   margin-bottom: 8px;
 }
 
-.flex-margin-bottom-std{
-  margin-bottom: 8px;
+.flex-margin-gap-std{
+  gap: 12px;
 }
 
 /* =========================================================
@@ -310,13 +310,13 @@ body {
 
 .header {
   grid-area: header;
-  background: yellow;
+  /* background: yellow; */
   text-align: center;
 }
 
 .footer {
   grid-area: footer;
-  background: rgb(195, 0, 255);
+  /* background: rgb(195, 0, 255); */
 }
 
 .content-left {
@@ -326,7 +326,7 @@ body {
 
 .content-left-sup {
   grid-area: content-left-sup;
-  background: rgb(136, 0, 199);
+  /* background: rgb(136, 0, 199); */
 }
 
 .content-left>img {
@@ -347,7 +347,7 @@ body {
 
 .content-right {
   grid-area: content-right;
-  background: rgb(199, 0, 0);
+  /* background: rgb(199, 0, 0); */
 }
 
 .content-right>img {
@@ -505,7 +505,6 @@ body {
 .svg-big-left-circle {
   width: 400px;
   height: 700px;
-  object-view-box: rect(0px, 0px, 400px, 700px);
 }
 
 .svg-big-left-circle>circle {
