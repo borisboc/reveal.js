@@ -22,6 +22,7 @@
   --font-paragraph: 'Barlow', sans-serif;
 
   --header-height: 80px;
+  --footer-height: 64px;
 }
 
 /* =========================================================
@@ -225,7 +226,7 @@ body {
   background: var(--slide-bg);
   display: grid;
   overflow: hidden;
-  grid-template-rows: var(--header-height) 576px 64px;
+  grid-template-rows: var(--header-height) 576px var(--footer-height);
   grid-template-columns: 3fr 1fr;
   grid-template-areas:
     "header header"
@@ -240,7 +241,7 @@ body {
   background: var(--slide-bg);
   display: grid;
   overflow: hidden;
-  grid-template-rows: var(--header-height) 100px 476px 64px;
+  grid-template-rows: var(--header-height) 100px 476px var(--footer-height);
   grid-template-columns: 25fr 10fr;
   grid-template-areas:
     "header header"
@@ -255,7 +256,7 @@ body {
   background: var(--slide-bg);
   display: grid;
   overflow: hidden;
-  grid-template-rows: var(--header-height) 576px 64px;
+  grid-template-rows: var(--header-height) 576px var(--footer-height);
   grid-template-columns: 1fr 1fr;
   grid-template-areas:
     "header header"
@@ -269,7 +270,7 @@ body {
   background: var(--slide-bg);
   display: grid;
   overflow: hidden;
-  grid-template-rows: var(--header-height) 576px 64px;
+  grid-template-rows: var(--header-height) 576px var(--footer-height);
   grid-template-columns: 10fr 25fr;
   grid-template-areas:
     "header header"
@@ -283,7 +284,7 @@ body {
   background: var(--slide-bg);
   display: grid;
   overflow: hidden;
-  grid-template-rows: var(--header-height) 100px 476px 64px;
+  grid-template-rows: var(--header-height) 100px 476px var(--footer-height);
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
     "header header header"
@@ -298,7 +299,7 @@ body {
   background: var(--slide-bg);
   display: grid;
   overflow: hidden;
-  grid-template-rows: var(--header-height) 100px 476px 64px;
+  grid-template-rows: var(--header-height) 100px 476px var(--footer-height);
   grid-template-columns: 1fr;
   grid-template-areas:
     "header"
@@ -313,7 +314,7 @@ body {
   background: var(--slide-bg);
   display: grid;
   overflow: hidden;
-  grid-template-rows: var(--header-height) 506px 70px 64px;
+  grid-template-rows: var(--header-height) 506px 70px var(--footer-height);
   grid-template-columns: 1fr;
   grid-template-areas:
     "header"
@@ -328,7 +329,7 @@ body {
   background: var(--slide-bg);
   display: grid;
   overflow: hidden;
-  grid-template-rows: var(--header-height) 576px 64px;
+  grid-template-rows: var(--header-height) 576px var(--footer-height);
   grid-template-columns: 1fr;
   grid-template-areas:
     "header"
