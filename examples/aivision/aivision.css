@@ -16,7 +16,7 @@
 
   --slide-width: 1280px;
   --slide-height: 720px;
-  --slide-bg: var(--white);
+
 
   --font-title: 'Noto Serif', serif;
   --font-paragraph: 'Barlow', sans-serif;
@@ -28,11 +28,15 @@
 }
 
 html:not(.dark) {
-  --subtitle-color: #300132;
+  --subtitle-color: #5d2285;
+  --slide-bg: var(--white);
+  --visibiliy-own-footer: visible; /*tweak : currently, weird behaviour with slidev between light and dark mode */ 
 }
 
 html.dark {
   --subtitle-color: #7C3AED;
+  --slide-bg: var(background-color);
+  --visibiliy-own-footer: hidden; /*tweak : currently, weird behaviour with slidev between light and dark mode */ 
 }
 
 /* =========================================================
@@ -173,25 +177,23 @@ body {
   border-radius: 210px;
 }
 
+.div-oblong > img{
+  border-radius: 210px;
+}
+
 /* =========================================================
    TITLE
    ========================================================= */
 
-@media screen {
-  .slide-title {
-    font-family: var(--font-title);
-    font-size: 58px;
-    font-weight: 700;
-    line-height: 1.00;
-    margin-top: 4px;
-    margin-bottom: 4px;
-    margin-left: 16px;
-    margin-right: 16px;
-    width: fit-content;
-  }
-}
-
-
+.slide-title,
+.aislide-2cols-big-left,
+.aislide-2cols-big-left-text-row,
+.aislide-2cols-same,
+.aislide-2cols-big-right,
+.aislide-3cols-same-text-row,
+.aislide-1col-text-row,
+.aislide-1col-bottom-row,
+.aislide-1col,
 .slidev-layout,
 .slidev-layout.default,
 .slidev-layout.cover,
@@ -204,13 +206,15 @@ body {
     font-size: 58px;
     font-weight: 700;
     line-height: 1.00;
-    width: fit-content;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     padding-bottom: 0.2em;
     margin-bottom: -0.2em;
+    grid-area: header;
+    width: fit-content;
+    justify-self: center;
   }
 
   h2 {
@@ -240,23 +244,6 @@ body {
     font-family: var(--font-paragraph);
   }
 
-}
-
-
-@media print {
-
-  /* gradient text does not work well in pdf print */
-  .slide-title {
-    font-family: var(--font-title);
-    font-size: 58px;
-    font-weight: 700;
-    line-height: 1.00;
-    margin-top: 4px;
-    margin-bottom: 4px;
-    margin-left: 16px;
-    margin-right: 16px;
-    color: var(--accent);
-  }
 }
 
 .subtitle {
@@ -408,6 +395,7 @@ body {
 
 .footer {
   grid-area: footer;
+  visibility: var(--visibiliy-own-footer);
   /* background: rgb(195, 0, 255); */
 }
 
@@ -456,6 +444,19 @@ body {
   grid-area: content-bottom;
 }
 
+.content-left,
+.content-left-sup,
+.content-mid,
+.content-right {
+  min-height: 0;
+}
+
+.content-left,
+.content-left-sup,
+.content-mid,
+.content-right p{
+  margin: 8px;
+}
 
 /* =========================================================
    FOOTER
@@ -484,7 +485,6 @@ body {
   font-size: 18px;
   font-family: var(--font-paragraph);
   line-height: 1.55;
-  color: var(--text-dark);
   text-align: center;
 }
 
@@ -500,13 +500,19 @@ body {
   align-content: center;
 }
 
-.bullet {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
+
+.bullet-grid {
+  display: grid;
+  grid-template-columns: 72px 400px;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "bullet_img bullet_title"
+    "bullet_img bullet_text"
 }
 
-.bullet-icon {
+.bullet-icon,
+.bullet>img {
+  padding: 8px;
   width: 48px;
   height: 48px;
   border-radius: 12px;
@@ -517,24 +523,30 @@ body {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-.bullet-icon img {
-  width: 24px;
-  height: 24px;
+.bullet-grid img,
+.bullet-grid svg {
+  grid-area: bullet_img;
+  margin-left: 12px;
+  margin-right: 12px;
+  align-self: center;
+  padding: 8px;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-.bullet-text h3 {
-  margin: 0 0 6px;
+.bullet-grid p {
+  grid-area: bullet_text;
+}
+
+.bullet-grid h3 {
+  grid-area: bullet_title;
   font-family: var(--font-title);
   font-size: 20px;
   color: var(--accent);
-}
-
-.bullet-text p {
-  margin: 0;
-  font-size: 14px;
-  font-family: var((--font-paragraph));
-  line-height: 1.55;
-  color: var(--text-dark);
+  align-self: last baseline;
 }
 
 
@@ -562,6 +574,8 @@ body {
   margin: 0 0 8px;
   font-family: var(--font-title);
   font-size: 22px;
+  color: white;
+  font-weight: bold;
 }
 
 .side-card p {
@@ -569,6 +583,11 @@ body {
   font-family: var(--font-paragraph);
   font-size: 18px;
   line-height: 1.55;
+}
+
+.side-card p,
+.side-card h3 {
+  text-align: center;
 }
 
 .side-card-margin-lr {
