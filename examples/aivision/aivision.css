@@ -22,7 +22,17 @@
   --font-paragraph: 'Barlow', sans-serif;
 
   --header-height: 80px;
-  --footer-height: 64px;
+  --footer-height: 80px;
+
+  --rounding-radius: 18px;
+}
+
+html:not(.dark) {
+  --subtitle-color: #300132;
+}
+
+html.dark {
+  --subtitle-color: #7C3AED;
 }
 
 /* =========================================================
@@ -139,18 +149,19 @@ body {
   text-align: center;
 }
 
-.rounded {
-  border-radius: 18px;
+
+.ai-rounded {
+  border-radius: var(--rounding-radius);
 }
 
-.rounded-top {
-  border-top-left-radius: 18px;
-  border-top-right-radius: 18px;
+.ai-rounded-top {
+  border-top-left-radius: var(--rounding-radius);
+  border-top-right-radius: var(--rounding-radius);
 }
 
-.rounded-bot {
-  border-bottom-left-radius: 18px;
-  border-bottom-right-radius: 18px;
+.ai-rounded-bot {
+  border-bottom-left-radius: var(--rounding-radius);
+  border-bottom-right-radius: var(--rounding-radius);
 }
 
 .padding-for-img-container {
@@ -181,7 +192,59 @@ body {
 }
 
 
-@media print{
+.slidev-layout,
+.slidev-layout.default,
+.slidev-layout.cover,
+.slidev-layout.intro,
+.slidev-layout.quote,
+.slidev-layout.section,
+.slidev-layout.statement {
+  h1 {
+    font-family: var(--font-title);
+    font-size: 58px;
+    font-weight: 700;
+    line-height: 1.00;
+    width: fit-content;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    padding-bottom: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  h2 {
+    font-family: var(--font-title);
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--subtitle-color);
+  }
+
+  h3,
+  h4,
+  h5 {
+    color: var(--subtitle-color);
+    font-family: var(--font-title);
+  }
+
+  p,
+  ul,
+  ol,
+  li,
+  table,
+  tr,
+  a,
+  td,
+  th,
+  kbd {
+    font-family: var(--font-paragraph);
+  }
+
+}
+
+
+@media print {
+
   /* gradient text does not work well in pdf print */
   .slide-title {
     font-family: var(--font-title);
@@ -199,7 +262,7 @@ body {
 .subtitle {
   font-size: 32px;
   font-weight: 600;
-  color: #300132;
+  color: var(--subtitle-color);
 }
 
 /* =========================================================
@@ -226,7 +289,7 @@ body {
   background: var(--slide-bg);
   display: grid;
   overflow: hidden;
-  grid-template-rows: var(--header-height) 576px var(--footer-height);
+  grid-template-rows: var(--header-height) calc(var(--slide-height) - var(--header-height) - var(--footer-height)) var(--footer-height);
   grid-template-columns: 3fr 1fr;
   grid-template-areas:
     "header header"
@@ -241,7 +304,7 @@ body {
   background: var(--slide-bg);
   display: grid;
   overflow: hidden;
-  grid-template-rows: var(--header-height) 100px 476px var(--footer-height);
+  grid-template-rows: var(--header-height) 100px calc(var(--slide-height) - var(--header-height) - var(--footer-height) -100px) var(--footer-height);
   grid-template-columns: 25fr 10fr;
   grid-template-areas:
     "header header"
@@ -256,7 +319,7 @@ body {
   background: var(--slide-bg);
   display: grid;
   overflow: hidden;
-  grid-template-rows: var(--header-height) 576px var(--footer-height);
+  grid-template-rows: var(--header-height) calc(var(--slide-height) - var(--header-height) - var(--footer-height)) var(--footer-height);
   grid-template-columns: 1fr 1fr;
   grid-template-areas:
     "header header"
@@ -270,7 +333,7 @@ body {
   background: var(--slide-bg);
   display: grid;
   overflow: hidden;
-  grid-template-rows: var(--header-height) 576px var(--footer-height);
+  grid-template-rows: var(--header-height) calc(var(--slide-height) - var(--header-height) - var(--footer-height)) var(--footer-height);
   grid-template-columns: 10fr 25fr;
   grid-template-areas:
     "header header"
@@ -284,7 +347,7 @@ body {
   background: var(--slide-bg);
   display: grid;
   overflow: hidden;
-  grid-template-rows: var(--header-height) 100px 476px var(--footer-height);
+  grid-template-rows: var(--header-height) 100px calc(var(--slide-height) - var(--header-height) - var(--footer-height) -100px) var(--footer-height);
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
     "header header header"
@@ -299,7 +362,7 @@ body {
   background: var(--slide-bg);
   display: grid;
   overflow: hidden;
-  grid-template-rows: var(--header-height) 100px 476px var(--footer-height);
+  grid-template-rows: var(--header-height) 100px calc(var(--slide-height) - var(--header-height) - var(--footer-height) -100px) var(--footer-height);
   grid-template-columns: 1fr;
   grid-template-areas:
     "header"
@@ -314,7 +377,7 @@ body {
   background: var(--slide-bg);
   display: grid;
   overflow: hidden;
-  grid-template-rows: var(--header-height) 506px 70px var(--footer-height);
+  grid-template-rows: var(--header-height) calc(var(--slide-height) - var(--header-height) - var(--footer-height) -70px) 70px var(--footer-height);
   grid-template-columns: 1fr;
   grid-template-areas:
     "header"
@@ -329,7 +392,7 @@ body {
   background: var(--slide-bg);
   display: grid;
   overflow: hidden;
-  grid-template-rows: var(--header-height) 576px var(--footer-height);
+  grid-template-rows: var(--header-height) calc(var(--slide-height) - var(--header-height) - var(--footer-height)) var(--footer-height);
   grid-template-columns: 1fr;
   grid-template-areas:
     "header"
@@ -422,6 +485,7 @@ body {
   font-family: var(--font-paragraph);
   line-height: 1.55;
   color: var(--text-dark);
+  text-align: center;
 }
 
 
@@ -550,7 +614,7 @@ body {
   height: 250;
   width: 64;
   overflow: hidden;
-  background-color: #300132;
+  background-color: var(--subtitle-color);
 }
 
 .div-pos-star {
